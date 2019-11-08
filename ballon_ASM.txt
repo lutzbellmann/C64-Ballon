@@ -10,7 +10,7 @@ sta $07fa ; sprite 2 block 13
 ldx #0
 loaddata:
 lda data,x
-sta sta $0340,x ; save all 63 bytes
+sta $0340,x ; save all 63 bytes
 inx
 cpx #62
 bne loaddata
