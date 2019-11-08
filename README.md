@@ -16,4 +16,6 @@ SYS2112
 The BASIC File can be directly edited in a simulator or on the Commodore 64 Computer.
 The Assembly file *.asm can be edited in Turbo Macro Pro Assembler.
 
+The "ballon_ASM.txt" file contains the readable menmonic of the assembler code. Can be used with cross assemblers for 6502. Depending on syntax convention of your cross assembler, changes may be needed.
+
 # Have fun!
