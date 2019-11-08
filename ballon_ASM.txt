@@ -1,0 +1,45 @@
+* = $0840
+; Up, up, and away
+jsr $ff81 ; clear screen
+lda #$04
+sta $d015 ; activate sprite 2
+sta $d017 ; expand x
+sta $d01d ; expand y
+lda #$0d
+sta $07fa ; sprite 2 block 13
+ldx #0
+loaddata:
+lda data,x
+sta sta $0340,x ; save all 63 bytes
+inx
+cpx #62
+bne loaddata
+ldx #0
+ldy #0
+loop:
+stx $d004 ; define x pos
+sta $d005 ; define y pos
+jsr delay
+jsr delay
+jsr delay
+jsr delay
+jsr delay
+jsr delay
+inx
+jmp loop
+data:
+.byte 0,127,0,1,255,192,3,255
+.byte 224,3,231,224,7,217,240
+.byte 7,223,240
+.byte 7,217,240,3,231,224,3,255
+.byte 224,3,255,224,2,255,160
+.byte 1,127,64,1,62,64,0,156
+.byte 128,0,156,128,0,73,0,0
+.byte 73,0,0,62,0,0,62,0,0,62
+.byte 0,0,28,0
+delay:  ; delay function
+ldy #0
+loop2:
+iny
+bne loop2
+rts
